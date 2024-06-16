@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparison Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        .graph-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .graph {
+            width: 48%;
+            margin-bottom: 20px;
+        }
+
+        .graph img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Comparison Results</h2>
+       
+        <!-- Overall Difference Graph -->
+        <h3>Overall Difference Graph</h3>
+        <p>Overall Accuracy: {{ overall_accuracy }}</p>
+        <p>Overall Variance: {{ overall_variance }}</p>
+        
+        <div class="graph-container">
+            <div class="graph">
+              
+                <img src="data:image/png;base64,{{ overall_graph }}" alt="Overall Difference Graph">
+            </div>
+            <!-- Frequency Band Plots -->
+            <div class="graph">
+                
+                <img src="data:image/png;base64,{{ overall_graph_with_line }}" alt="Frequency Band Plots">
+            </div>
+        </div>
+        
+        <!-- Topographical Plots Before and After -->
+        <h2>Topographical Plots</h2>
+        <div class="graph-container">
+            <div class="graph">
+                <h3>Before</h3>
+                <img src="data:image/png;base64,{{ topographical_plot_before }}" alt="Topographical Plot Before">
+            </div>
+            <div class="graph">
+                <h3>After</h3>
+                <img src="data:image/png;base64,{{ topographical_plot_after }}" alt="Topographical Plot After">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
